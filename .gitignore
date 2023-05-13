@@ -4,3 +4,7 @@ data/processed_crossdock_noH_ca_only_temp
 data/processed_crossdock_noH_full_temp
 logdir/
 test_results/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
