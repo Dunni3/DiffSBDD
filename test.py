@@ -58,8 +58,16 @@ if __name__ == "__main__":
     for sdf_file in pbar:
         ligand_name = sdf_file.stem
 
-        pdb_name, pocket_id, *suffix = ligand_name.split('_')
-        pdb_file = Path(sdf_file.parent, f"{pdb_name}.pdb")
+        if model.dataset_name == "bindingmoad":
+            split_lig_name = ligand_name.split('_')
+            pdb_file_name = "_".join(split_lig_name[:2])
+            pdb_file = sdf_file.parent / f'{pdb_file_name}.pdb'
+        else:
+            pdb_name, pocket_id, *suffix = ligand_name.split('_')
+            pdb_file = Path(sdf_file.parent, f"{pdb_name}.pdb")
+
+        # pdb_name, pocket_id, *suffix = ligand_name.split('_')
+        # pdb_file = Path(sdf_file.parent, f"{pdb_name}.pdb")
         txt_file = Path(sdf_file.parent, f"{ligand_name}.txt")
         sdf_out_file_raw = Path(raw_sdf_dir, f'{ligand_name}_gen.sdf')
         sdf_out_file_processed = Path(processed_sdf_dir,
