@@ -2,6 +2,7 @@ data/BindingMOAD_2020
 data/crossdocked_pocket10
 data/processed_crossdock_noH_ca_only_temp
 data/processed_crossdock_noH_full_temp
+data/processed_noH_ca_only
 logdir/
 test_results/
 
